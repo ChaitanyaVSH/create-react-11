@@ -14,7 +14,7 @@ const BioData = (props) => {
           Hey, <br /> Good {timeNow} <br /> {props.userName}
         </h1>
         <p>{currentQuotation}</p>
-        <h3>There are {props.totalTodos} items in your checklist</h3>
+        {getSubBanner()}
       </div>
     </div>
   );
@@ -41,6 +41,13 @@ const BioData = (props) => {
     ];
 
     return quotes[Math.floor(Math.random() * 4) + 1];
+  }
+
+  function getSubBanner() {
+    console.log("Total todos" + props.totalTodos);
+    if (localStorage.getItem("loggedIn") === null)
+      return <h3>Please SignUp to proceed further</h3>;
+    return <h3>There are {props.totalTodos} items in your checklist</h3>;
   }
 };
 

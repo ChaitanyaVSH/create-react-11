@@ -8,7 +8,7 @@ import { v4 as uuid } from "uuid";
 
 class App extends Component {
   state = {
-    todos: [],
+    todos: JSON.parse(localStorage.getItem("todos")) || [],
     userName: localStorage.getItem("userName"),
   };
 
@@ -20,6 +20,7 @@ class App extends Component {
     };
 
     const todos = [...this.state.todos, newTodo];
+    localStorage.setItem("todos", JSON.stringify(todos));
 
     this.setState({
       todos: todos,
@@ -32,6 +33,7 @@ class App extends Component {
     console.log(index);
     const todos = [...this.state.todos];
     todos.splice(index, 1);
+    localStorage.setItem("todos", JSON.stringify(todos));
     this.setState({
       todos: todos,
     });
