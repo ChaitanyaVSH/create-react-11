@@ -3,17 +3,13 @@ import "./App.css";
 import BioData from "./components/NavBar";
 import Wrapper from "./components/Wrapper";
 import AddTodo from "./components/AddTodo";
+import AddUser from "./components/AddUser";
 import { v4 as uuid } from "uuid";
 
 class App extends Component {
   state = {
-    todos: [
-      { id: uuid(), desc: "Do not give up on this", completed: true },
-      { id: uuid(), desc: "Slow and steady wins the race", completed: false },
-      { id: uuid(), desc: "Work hard", completed: true },
-      { id: uuid(), desc: "One Day you will be the CEO", completed: true },
-      { id: uuid(), desc: "All this came true", completed: true },
-    ],
+    todos: [],
+    userName: localStorage.getItem("userName"),
   };
 
   handleSubmit = (todoDesc) => {
@@ -41,6 +37,16 @@ class App extends Component {
     });
   };
 
+  handleLogin = (userName) => {
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("loggedIn", "yes");
+    const todos = [...this.state.todos];
+    this.setState({
+      todos: todos,
+      userName: userName,
+    });
+  };
+
   returnWrapper() {
     if (this.state.todos.length === 0)
       return (
@@ -52,9 +58,23 @@ class App extends Component {
   }
 
   render() {
+    const alreadyAnUser = localStorage.getItem("loggedIn");
+
+    if (alreadyAnUser === null) {
+      return (
+        <div>
+          <BioData />
+          <AddUser onLogin={this.handleLogin} />
+        </div>
+      );
+    }
+
     return (
       <div>
-        <BioData totalTodos={this.state.todos.length} />
+        <BioData
+          totalTodos={this.state.todos.length}
+          userName={this.state.userName}
+        />
         <AddTodo onSubmit={this.handleSubmit} />
         {this.returnWrapper()}
       </div>

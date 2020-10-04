@@ -19,7 +19,7 @@ input[type="text"]:focus {
   font-weight: bolder;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1120px) {
   input[type="text"] {
     width: 100%;
     margin: auto;

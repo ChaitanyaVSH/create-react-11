@@ -11,7 +11,7 @@ const BioData = (props) => {
     >
       <div className="container">
         <h1 className="display-1">
-          Hey, <br /> Good {timeNow} <br /> Chaitu Maverick
+          Hey, <br /> Good {timeNow} <br /> {props.userName}
         </h1>
         <p>{currentQuotation}</p>
         <h3>There are {props.totalTodos} items in your checklist</h3>
