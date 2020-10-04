@@ -25,7 +25,7 @@ class App extends Component {
     this.setState({
       todos: todos,
     });
-    alert("ToDo with the desc " + todoDesc + " added");
+    alert("ToDo with the description " + todoDesc + " added");
   };
 
   handleFinish = (todoItem) => {
