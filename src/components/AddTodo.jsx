@@ -17,6 +17,8 @@ class AddTodo extends Component {
 
   onClick = () => {
     const todoDesc = this.state.desc;
+    if (todoDesc.trim().length === 0)
+      return alert("Please enter a valid ToDo.");
     this.props.onSubmit(todoDesc);
     this.setState({
       desc: "",
