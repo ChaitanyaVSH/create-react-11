@@ -1,7 +1,8 @@
 import React from "react";
+const greet = require("greetingmessage");
 
 const BioData = (props) => {
-  var timeNow = calculateTimeNow();
+  var timeNow = greet.greetingMessage();
   var currentQuotation = generateQuotation();
 
   return (
@@ -19,17 +20,21 @@ const BioData = (props) => {
     </div>
   );
 
-  function calculateTimeNow() {
-    const date = new Date();
-    const hours = date.getHours();
+  /**
+   * The below function is now replaced with a npm package to generate the dynamic greeting message.
+   * Npm Package: https://www.npmjs.com/package/greetingmessage
+   */
+  // function calculateTimeNow() {
+  //   const date = new Date();
+  //   const hours = date.getHours();
 
-    if (hours < 12) timeNow = "Morning";
-    else if (hours >= 12 && hours < 17) timeNow = "afternoon";
-    else if (hours >= 17 && hours < 20) timeNow = "evening";
-    else timeNow = "night";
+  //   if (hours < 12) timeNow = "Morning";
+  //   else if (hours >= 12 && hours < 17) timeNow = "afternoon";
+  //   else if (hours >= 17 && hours < 20) timeNow = "evening";
+  //   else timeNow = "night";
 
-    return timeNow;
-  }
+  //   return timeNow;
+  // }
 
   function generateQuotation() {
     const quotes = [
