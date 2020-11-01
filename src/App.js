@@ -32,11 +32,12 @@ class App extends Component {
     const index = this.state.todos.indexOf(todoItem);
     console.log(index);
     const todos = [...this.state.todos];
-    todos.splice(index, 1);
+    todos[index].completed = true;
     localStorage.setItem("todos", JSON.stringify(todos));
     this.setState({
       todos: todos,
     });
+    alert("Todo Finshed");
   };
 
   handleLogin = (userName) => {

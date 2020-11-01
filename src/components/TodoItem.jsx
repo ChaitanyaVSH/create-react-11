@@ -11,12 +11,13 @@ class TodoItem extends Component {
         this.props.todo.completed === true
           ? "5px solid lightblue"
           : "5px solid lightgreen",
+      textDecoration:
+        this.props.todo.completed === true ? "line-through" : "none",
     };
   }
 
   onFinish = (e) => {
     e.preventDefault();
-    alert("Todo finished");
     this.props.finished(this.props.todo);
   };
 
@@ -24,17 +25,19 @@ class TodoItem extends Component {
     // const styles = {
     //   This const will not create any TS issues.
     // }
+    const { desc, completed } = this.props.todo;
 
     return (
       <div style={this.getStyles()}>
-        <span>{this.props.todo.desc}</span>
+        <span>{desc}</span>
         <span>
           <button
             className="btn btn-warning"
             style={{ float: "right" }}
             onClick={this.onFinish}
+            disabled={completed}
           >
-            Finish
+            {this.props.todo.completed ? "Finished" : "Finish"}
           </button>
         </span>
       </div>
