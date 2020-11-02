@@ -49,7 +49,6 @@ const BioData = (props) => {
   }
 
   function getSubBanner() {
-    console.log("Total todos" + props.totalTodos);
     if (localStorage.getItem("loggedIn") === null)
       return <h3>Please SignUp to proceed further</h3>;
     return <h3>There are {props.totalTodos} items in your checklist</h3>;
