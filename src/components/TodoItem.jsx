@@ -23,9 +23,9 @@ class TodoItem extends Component {
     return className;
   }
 
-  onFinish = (e) => {
-    e.preventDefault();
-    this.props.finished(this.props.todo);
+  onFinish = (event) => {
+    event.preventDefault();
+    this.props.finished(event,this.props.todo);
   };
 
   render() {
@@ -42,9 +42,9 @@ class TodoItem extends Component {
             className={this.getClassName()}
             style={{ float: "right" }}
             onClick={this.onFinish}
-            disabled={completed}
+            
           >
-            {this.props.todo.completed ? "Delete" : "Finish"}
+            {completed ? "Delete" : "Finish"}
           </button>
         </span>
       </div>

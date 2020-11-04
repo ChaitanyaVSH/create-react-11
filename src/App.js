@@ -28,16 +28,24 @@ class App extends Component {
     alert("ToDo with the description " + todoDesc + " added");
   };
 
-  handleFinish = (todoItem) => {
-    const index = this.state.todos.indexOf(todoItem);
-    console.log(index);
-    const todos = [...this.state.todos];
-    todos[index].completed = true;
-    localStorage.setItem("todos", JSON.stringify(todos));
-    this.setState({
-      todos: todos,
-    });
-    alert("Todo Finshed");
+  handleFinish = (event,todoItem) => {
+      const index = this.state.todos.indexOf(todoItem);
+      let todos = [...this.state.todos];
+
+    if(event.target.className === "btn btn-secondary"){
+      todos.splice(index, 1);
+      localStorage.setItem("todos", JSON.stringify(todos));
+      this.setState({
+       todos: todos,
+      });
+    }
+    else{
+      todos[index].completed = true;
+      localStorage.setItem("todos", JSON.stringify(todos));
+      this.setState({
+       todos: todos,
+      });
+    }
   };
 
   handleLogin = (userName) => {
