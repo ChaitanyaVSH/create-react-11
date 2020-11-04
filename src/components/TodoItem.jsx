@@ -16,6 +16,13 @@ class TodoItem extends Component {
     };
   }
 
+  getClassName(){
+    let className = "btn btn-";
+    className = className + (this.props.todo.completed?"secondary":"warning")
+    
+    return className;
+  }
+
   onFinish = (e) => {
     e.preventDefault();
     this.props.finished(this.props.todo);
@@ -32,12 +39,12 @@ class TodoItem extends Component {
         <span>{desc}</span>
         <span>
           <button
-            className="btn btn-warning"
+            className={this.getClassName()}
             style={{ float: "right" }}
             onClick={this.onFinish}
             disabled={completed}
           >
-            {this.props.todo.completed ? "Finished" : "Finish"}
+            {this.props.todo.completed ? "Delete" : "Finish"}
           </button>
         </span>
       </div>
