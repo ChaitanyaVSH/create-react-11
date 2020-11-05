@@ -79,11 +79,14 @@ class App extends Component {
         </div>
       );
     }
+    const totalTodos = this.state.todos.length
+    const finishedTodos = this.state.todos.filter((todo)=>todo.completed === true).length
 
     return (
       <div>
         <BioData
-          totalTodos={this.state.todos.length}
+          totalTodos={totalTodos}
+          finishedTodos={finishedTodos}
           userName={this.state.userName}
         />
         <AddTodo onSubmit={this.handleSubmit} />

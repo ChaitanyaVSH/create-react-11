@@ -11,7 +11,7 @@ const BioData = (props) => {
       style={{ backgroundColor: "lightgreen" }}
     >
       <div className="container">
-        <h1 className="display-1">
+        <h1 className="display-2">
           Hey, <br /> Good {timeNow} <br /> {props.userName}
         </h1>
         <p>{currentQuotation}</p>
@@ -51,7 +51,11 @@ const BioData = (props) => {
   function getSubBanner() {
     if (localStorage.getItem("loggedIn") === null)
       return <h3>Please SignUp to proceed further</h3>;
-    return <h3>There are {props.totalTodos} items in your checklist</h3>;
+    return(
+      <div>
+        <h3>There are {props.totalTodos} items in your checklist. Finished: {props.finishedTodos}, Yet To Finish: {props.totalTodos - props.finishedTodos}</h3>
+      </div>
+    )
   }
 };
 
