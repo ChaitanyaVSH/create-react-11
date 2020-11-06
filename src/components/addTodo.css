@@ -13,10 +13,11 @@ input[type="text"]:focus {
 
 #submit-book {
   padding: 13px;
-  background-color: lightblue;
+  /* Replaced the below styles with the BootStrap btn. 
+   background-color: lightblue;
   border-radius: 4px;
   color: white;
-  font-weight: bolder;
+  font-weight: bolder;  */
 }
 
 @media (max-width: 1120px) {

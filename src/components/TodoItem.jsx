@@ -18,7 +18,7 @@ class TodoItem extends Component {
 
   getClassName(){
     let className = "btn btn-";
-    className = className + (this.props.todo.completed?"secondary":"warning")
+    className = className + (this.props.todo.completed?"secondary":"outline-warning")
     
     return className;
   }

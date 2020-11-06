@@ -36,7 +36,7 @@ class AddTodo extends Component {
             onChange={this.onChange}
             value={this.state.desc}
           />
-          <button id="submit-book" onClick={this.onClick}>
+          <button id="submit-book" className="btn btn-outline-success" onClick={this.onClick}>
             Submit
           </button>
         </div>
