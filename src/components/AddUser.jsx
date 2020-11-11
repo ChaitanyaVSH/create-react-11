@@ -33,7 +33,7 @@ class AddUser extends Component {
             onChange={this.onChange}
             value={this.state.userName}
           />
-          <button id="submit-book" onClick={this.onClick}>
+          <button id="submit-book" className="btn btn-outline-success" onClick={this.onClick}>
             Sign Up
           </button>
         </div>
