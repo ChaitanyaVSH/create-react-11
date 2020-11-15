@@ -39,6 +39,9 @@ class AddTodo extends Component {
           <button id="submit-book" className="btn btn-outline-success" onClick={this.onClick}>
             Submit
           </button>
+          <button id="submit-book" className="btn btn-outline-success" onClick={this.props.onSave}>
+            Save to S3
+          </button>
         </div>
       </div>
     );

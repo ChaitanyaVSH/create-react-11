@@ -5,12 +5,21 @@ import Wrapper from "./components/Wrapper";
 import AddTodo from "./components/AddTodo";
 import AddUser from "./components/AddUser";
 import { v4 as uuid } from "uuid";
+import AWS from "aws-sdk";
 
 class App extends Component {
-  state = {
-    todos: JSON.parse(localStorage.getItem("todos")) || [],
-    userName: localStorage.getItem("userName"),
-  };
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      todos: JSON.parse(localStorage.getItem("todos")) || [],
+      userName: localStorage.getItem("userName"),
+    };
+
+    AWS.config.update({region: 'us-west-2'});
+  }
+  
+;
 
   handleSubmit = (todoDesc) => {
     const newTodo = {
@@ -58,6 +67,21 @@ class App extends Component {
     });
   };
 
+  handleS3Publish = ()=>{
+
+    let s3 = new AWS.S3({apiVersion: '2006-03-01'});
+
+    // Call S3 to list the buckets
+    s3.listBuckets(function(err, data) {
+      if (err) {
+        console.log("Error", err);
+      } else {
+        console.log("Success", data.Buckets);
+      }
+    });
+    
+  }
+
   returnWrapper() {
     if (this.state.todos.length === 0)
       return (
@@ -89,7 +113,7 @@ class App extends Component {
           finishedTodos={finishedTodos}
           userName={this.state.userName}
         />
-        <AddTodo onSubmit={this.handleSubmit} />
+        <AddTodo onSubmit={this.handleSubmit} onSave={this.handleS3Publish}/>
         {this.returnWrapper()}
       </div>
     );
