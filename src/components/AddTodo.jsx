@@ -39,7 +39,7 @@ class AddTodo extends Component {
           <button id="submit-book" className="btn btn-outline-success" onClick={this.onClick}>
             Submit
           </button>
-          <button id="submit-book" className="btn btn-outline-success" onClick={this.props.onSave}>
+          <button id="submit-book" className="btn btn-outline-success" onClick={this.props.onSave} disabled={true}>
             Send to mail
           </button>
         </div>

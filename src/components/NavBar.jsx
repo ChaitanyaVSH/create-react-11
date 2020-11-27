@@ -1,8 +1,8 @@
 import React from "react";
-const greet = require("greetingmessage");
+import ITypedText from "./ITypedText";
 
 const BioData = (props) => {
-  var timeNow = greet.greetingMessage();
+
   var currentQuotation = generateQuotation();
 
   return (
@@ -12,8 +12,9 @@ const BioData = (props) => {
     >
       <div className="container">
         <h1 className="display-2">
-          Hey, <br /> Good {timeNow} <br /> {props.userName}
+          Hey
         </h1>
+        <ITypedText userName={props.userName}/>
         <p>{currentQuotation}</p>
         {getSubBanner()}
       </div>
