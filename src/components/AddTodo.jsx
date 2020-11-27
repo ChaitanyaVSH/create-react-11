@@ -40,7 +40,7 @@ class AddTodo extends Component {
             Submit
           </button>
           <button id="submit-book" className="btn btn-outline-success" onClick={this.props.onSave}>
-            Save to S3
+            Send to mail
           </button>
         </div>
       </div>
