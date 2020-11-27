@@ -14,7 +14,7 @@ const BioData = (props) => {
         <h1 className="display-2">
           Hey
         </h1>
-        <ITypedText userName={props.userName}/>
+        <ITypedText userName={props.userName || "Please Sign up"}/>
         <p>{currentQuotation}</p>
         {getSubBanner()}
       </div>
