@@ -7,7 +7,7 @@ const BioData = (props) => {
 
   return (
     <div
-      className="jumbotron jumbotron-fluid"
+      className="jumbotron jumbotron-fluid temp"
       style={{ backgroundColor: "lightgreen" }}
     >
       <div className="container">
