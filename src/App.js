@@ -92,7 +92,6 @@ class App extends Component {
     }
     const totalTodos = this.state.todos.length
     const finishedTodos = this.state.todos.filter((todo)=>todo.completed === true).length
-
     return (
       <div>
         <BioData

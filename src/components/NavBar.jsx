@@ -4,6 +4,7 @@ import ITypedText from "./ITypedText";
 const BioData = (props) => {
 
   var currentQuotation = generateQuotation();
+  console.log("User name: ",props.userName);
 
   return (
     <div
@@ -14,7 +15,7 @@ const BioData = (props) => {
         <h1 className="display-2">
           Hey
         </h1>
-        <ITypedText userName={props.userName || "Please Sign up"}/>
+        <ITypedText userName={props.userName || "Please Sign up"} key={props.userName}/>
         <p>{currentQuotation}</p>
         {getSubBanner()}
       </div>
@@ -51,7 +52,7 @@ const BioData = (props) => {
 
   function getSubBanner() {
     if (localStorage.getItem("loggedIn") === null)
-      return <h3>Please SignUp to proceed further</h3>;
+      return null;
     return(
       <div>
         <h3>There are {props.totalTodos} items in your checklist. Finished: {props.finishedTodos}, Yet To Finish: {props.totalTodos - props.finishedTodos}</h3>
